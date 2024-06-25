@@ -26,7 +26,7 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY) // OneToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 

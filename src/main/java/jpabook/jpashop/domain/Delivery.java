@@ -14,7 +14,7 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY) // OneToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     private Order order;
 
     @Embedded
