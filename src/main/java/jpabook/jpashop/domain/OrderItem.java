@@ -14,11 +14,11 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "order_id")
     private Order order;
 

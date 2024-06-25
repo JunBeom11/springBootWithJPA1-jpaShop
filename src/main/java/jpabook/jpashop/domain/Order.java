@@ -19,7 +19,7 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "member_id")
     private Member member;
 
