@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Table(name = "orders")
 @Getter
@@ -19,14 +21,14 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
+    @ManyToOne(fetch = LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch = FetchType.LAZY) // OneToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
+    @OneToOne(fetch = LAZY) // OneToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 

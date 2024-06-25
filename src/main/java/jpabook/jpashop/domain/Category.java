@@ -8,6 +8,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Getter
 @Setter
@@ -25,7 +27,7 @@ public class Category {
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
+    @ManyToOne(fetch = LAZY) // ManyToOne은 EAGER가 default이고 성능 저하 이슈로 LAZY 추천
     @JoinColumn(name = "parent_id")
     private Category parent;
 
