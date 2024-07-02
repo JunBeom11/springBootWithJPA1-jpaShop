@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create # create는 엔티티로 등록된 클래스와 매핑되는 테이블을 자동으로 생성(create)해준다.
+      # 이 과정에서 기존에 해당 클래스와 매핑되는 테이블이 존재한다면 기존 테이블을 삭제(drop)하고 테이블을 생성한다.
+    properties:
+      hibernate:
+        show_sql: true  # Hibernate이 DB에 날리는 모든 쿼리(DDL, DML)를 보여준다
+        format_sql: true # sql 로그 예쁘게 보기
+
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.orm.jdbc.bind: trace
+
