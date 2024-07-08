@@ -7,7 +7,8 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create # create는 엔티티로 등록된 클래스와 매핑되는 테이블을 자동으로 생성(create)해준다.
+      ddl-auto: none # create는 엔티티로 등록된 클래스와 매핑되는 테이블을 자동으로 생성(create)해준다.
+                     # none 은 데이터 넣어 두면 계속 반복해서 데이터베이스에 있는 데이터를 사용할 수 있게 해준다.
       # 이 과정에서 기존에 해당 클래스와 매핑되는 테이블이 존재한다면 기존 테이블을 삭제(drop)하고 테이블을 생성한다.
     properties:
       hibernate:
